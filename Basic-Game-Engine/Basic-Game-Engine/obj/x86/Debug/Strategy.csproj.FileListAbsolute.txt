@@ -1,0 +1,16 @@
+c:\users\ewen\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ewen\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Desert.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\button.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\BattleEngine.exe
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\BattleEngine.pdb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\BattleEngine.exe
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\BattleEngine.pdb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Desert.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\button.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\BattleEngine.exe
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\BattleEngine.pdb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\BattleEngine.exe
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\BattleEngine.pdb
