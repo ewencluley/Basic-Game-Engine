@@ -19,6 +19,10 @@ namespace BattleEngine
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameManager gameManager;
+        KeyboardState prevKeyboardState;
+        
+        Menus.MainMenu mainMenu;
+
 
         public Game1()
         {
@@ -53,8 +57,9 @@ namespace BattleEngine
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameManager = new GameManager(this);
-            Menus.MainMenu screen = new Menus.MainMenu(this);
-            gameManager.AddScreen(screen);
+            mainMenu = new Menus.MainMenu(this);
+            gameManager.AddScreen(mainMenu);
+            gameManager.Initialize();
             Components.Add(gameManager);
             
         }
@@ -75,13 +80,23 @@ namespace BattleEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            // TODO: Add your update logic here
+            
+            #region Main Menu Open/Close
+            if (!prevKeyboardState.Equals(Keyboard.GetState()))
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.ScreenState == Menus.ScreenState.Inactive)
+                {
+                    mainMenu.ScreenState = Menus.ScreenState.TransitioningIn;
+                }
+                else if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.ScreenState == Menus.ScreenState.Active)
+                {
+                    mainMenu.ScreenState = Menus.ScreenState.TransitioningOut;
+                }
+            }
+            #endregion
 
             base.Update(gameTime);
+            prevKeyboardState = Keyboard.GetState();
         }
 
         /// <summary>

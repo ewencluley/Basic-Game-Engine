@@ -1,2 +1,12 @@
 Content\Desert.xnb
 Content\button.xnb
+Content\ADP-texture-22.xnb
+Content\boiler.xnb
+Content\dome.xnb
+Content\funnel.xnb
+Content\noseCone.xnb
+Content\ship.xnb
+Content\dome_0.xnb
+Content\ADP-texture-22_0.xnb
+Content\boiler_0.xnb
+Content\funnel_0.xnb

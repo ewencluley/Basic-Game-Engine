@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using BattleEngine.Menus;
+using Microsoft.Xna.Framework.Input;
 
 namespace BattleEngine
 {
@@ -13,12 +14,19 @@ namespace BattleEngine
     {
         #region Fields
         List<Screen> screens = new List<Screen>();
+        Level currentLevel;
         #endregion
 
         public GameManager(Game game)
             :base(game)
         {
+            currentLevel = new Level(game);
+        }
 
+        public override void Initialize()
+        {
+            currentLevel.Initialize();
+            base.Initialize();
         }
 
         public void AddScreen(Screen screen)
@@ -35,18 +43,38 @@ namespace BattleEngine
 
         public override void Update(GameTime gameTime)
         {
+            bool gameActive = true;
+            foreach (Screen activeScreen in screens) //make sure no screens are overlaying the game
+            {
+                if (gameActive && activeScreen.ScreenState == ScreenState.Active) gameActive = false;
+            }
+            if(gameActive) currentLevel.Update(gameTime);// if no menus are overlaying the level, then update it.
             foreach (Screen screen in screens)
             {
-                screen.Update(gameTime);
+                if (screen.ScreenState != ScreenState.Inactive)
+                {
+                    screen.Update(gameTime);
+                }
             }
+
+            
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
+            bool gameActive = true;
+            foreach (Screen activeScreen in screens)
+            {
+                if (gameActive && activeScreen.ScreenState == ScreenState.Active) gameActive = false;
+            }
+            if (gameActive) currentLevel.Draw(gameTime);
             foreach (Screen screen in screens)
             {
-                screen.Draw(gameTime);
+                if (screen.ScreenState != ScreenState.Inactive)
+                {
+                    screen.Draw(gameTime);
+                }
             }
             base.Draw(gameTime);
         }

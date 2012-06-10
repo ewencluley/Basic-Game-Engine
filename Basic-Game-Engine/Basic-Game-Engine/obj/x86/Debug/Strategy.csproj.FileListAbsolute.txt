@@ -14,3 +14,13 @@ C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\BattleEngine.exe
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\obj\x86\Debug\BattleEngine.pdb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\ADP-texture-22.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\boiler.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\dome.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\funnel.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\noseCone.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\ship.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\dome_0.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\ADP-texture-22_0.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\boiler_0.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\funnel_0.xnb

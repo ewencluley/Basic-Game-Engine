@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="BattleEngine\GameManager.cs" />
     <Compile Include="BattleEngine\GameSettings.cs" />
+    <Compile Include="BattleEngine\Level.cs" />
     <Compile Include="BattleEngine\Menus\MenuItems\Button.cs" />
     <Compile Include="BattleEngine\Menus\MainMenu.cs" />
     <Compile Include="BattleEngine\Menus\MenuItems\MenuItem.cs" />

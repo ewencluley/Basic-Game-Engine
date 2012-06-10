@@ -47,6 +47,10 @@ namespace BattleEngine.Menus.MenuItems
                 clickedEvent(this);//fire the event
                 //System.Console.WriteLine("clicked!");
             }
+            if(MouseOverButton(Mouse.GetState()))
+            {
+                MenuItemState = Menus.MenuItemState.MouseOver;
+            }
             base.Update(gameTime);
             prevMouseState = Mouse.GetState();
         }
