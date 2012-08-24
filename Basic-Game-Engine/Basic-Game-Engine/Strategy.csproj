@@ -107,12 +107,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleEngine\GameElements\Terrain\BufferManager.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\QuadTree.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\QuadTreeNode.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\TerrainBlock.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\TerrainManager.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\TreeVertexCollection.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\TriangleVB.cs" />
     <Compile Include="BattleEngine\GameManager.cs" />
     <Compile Include="BattleEngine\GameSettings.cs" />
     <Compile Include="BattleEngine\Level.cs" />
     <Compile Include="BattleEngine\Menus\MenuItems\Button.cs" />
     <Compile Include="BattleEngine\Menus\MainMenu.cs" />
     <Compile Include="BattleEngine\Menus\MenuItems\MenuItem.cs" />
+    <Compile Include="BattleEngine\Menus\MenuItems\TextButton.cs" />
+    <Compile Include="BattleEngine\Menus\Popup.cs" />
     <Compile Include="BattleEngine\Menus\Screen.cs" />
     <Compile Include="BattleEngine\Menus\ScreenState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

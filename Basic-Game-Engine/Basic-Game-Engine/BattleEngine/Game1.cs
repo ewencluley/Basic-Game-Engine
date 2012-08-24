@@ -22,6 +22,7 @@ namespace BattleEngine
         KeyboardState prevKeyboardState;
         
         Menus.MainMenu mainMenu;
+        Menus.Popup popup;
 
 
         public Game1()
@@ -59,6 +60,8 @@ namespace BattleEngine
             gameManager = new GameManager(this);
             mainMenu = new Menus.MainMenu(this);
             gameManager.AddScreen(mainMenu);
+            popup = new Menus.Popup(this);
+            gameManager.AddScreen(popup);
             gameManager.Initialize();
             Components.Add(gameManager);
             
@@ -95,6 +98,20 @@ namespace BattleEngine
             }
             #endregion
 
+            #region Popup Open/Close
+            if (!prevKeyboardState.Equals(Keyboard.GetState()))
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.P) && popup.ScreenState == Menus.ScreenState.Inactive)
+                {
+                    popup.ScreenState = Menus.ScreenState.TransitioningIn;
+                }
+                else if (Keyboard.GetState().IsKeyDown(Keys.P) && popup.ScreenState == Menus.ScreenState.Active)
+                {
+                    popup.ScreenState = Menus.ScreenState.TransitioningOut;
+                }
+            }
+            #endregion
+
             base.Update(gameTime);
             prevKeyboardState = Keyboard.GetState();
         }
@@ -105,8 +122,10 @@ namespace BattleEngine
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.CornflowerBlue, 1.0f, 0);
 
+            GraphicsDevice.BlendState = BlendState.Opaque;
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

@@ -5,7 +5,10 @@ Content\boiler.xnb
 Content\dome.xnb
 Content\funnel.xnb
 Content\noseCone.xnb
+Content\Lighthouse.xnb
+Content\heightmap.xnb
 Content\ship.xnb
+Content\Ariel.xnb
 Content\dome_0.xnb
 Content\ADP-texture-22_0.xnb
 Content\boiler_0.xnb

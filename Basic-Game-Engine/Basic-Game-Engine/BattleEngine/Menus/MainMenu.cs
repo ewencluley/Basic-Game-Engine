@@ -12,6 +12,7 @@ namespace BattleEngine.Menus
     class MainMenu:Screen
     {
         const float FINISHED_TOLLERANCE = 0.1f;
+        const float TRANSITION_SPEED = 0.09f;
         Vector2 offscreenPosition;
         Vector2 onscreenPosition;
 
@@ -29,7 +30,10 @@ namespace BattleEngine.Menus
             onscreenPosition = Vector2.Zero;
             Button play = new Button(game, "button", new Vector2(200, 200));
             play.clickedEvent +=new Button.ButtonClicked(play_clickedEvent);
+            Button nothing = new TextButton(game, "button", new Vector2(200, 300), "button");
+            nothing.clickedEvent +=new Button.ButtonClicked(play_clickedEvent);
             MenuItems.Add(play);
+            MenuItems.Add(nothing);
 
         }
 
@@ -48,14 +52,14 @@ namespace BattleEngine.Menus
         public override void TransitionIn(GameTime gt)
         {
             //transition in animation
-            Position = Vector2.Lerp(Position, onscreenPosition, 0.09f);
+            Position = Vector2.Lerp(Position, onscreenPosition, TRANSITION_SPEED);
             if (Vector2.Distance(Position, onscreenPosition) < FINISHED_TOLLERANCE) base.ScreenState = Menus.ScreenState.Active;
         }
 
         public override void TransitionOut(GameTime gt)
         {
             //transition out animation
-            Position = Vector2.Lerp(Position, offscreenPosition, 0.09f);
+            Position = Vector2.Lerp(Position, offscreenPosition, TRANSITION_SPEED);
             if (Vector2.Distance(Position, offscreenPosition) < FINISHED_TOLLERANCE) base.ScreenState = Menus.ScreenState.Inactive;
         }
 

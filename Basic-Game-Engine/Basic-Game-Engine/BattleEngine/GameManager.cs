@@ -46,7 +46,7 @@ namespace BattleEngine
             bool gameActive = true;
             foreach (Screen activeScreen in screens) //make sure no screens are overlaying the game
             {
-                if (gameActive && activeScreen.ScreenState == ScreenState.Active) gameActive = false;
+                if (gameActive && activeScreen.ScreenState == ScreenState.Active && !(activeScreen is Popup)) gameActive = false;
             }
             if(gameActive) currentLevel.Update(gameTime);// if no menus are overlaying the level, then update it.
             foreach (Screen screen in screens)
@@ -66,7 +66,7 @@ namespace BattleEngine
             bool gameActive = true;
             foreach (Screen activeScreen in screens)
             {
-                if (gameActive && activeScreen.ScreenState == ScreenState.Active) gameActive = false;
+                if (gameActive && activeScreen.ScreenState == ScreenState.Active && !(activeScreen is Popup)) gameActive = false;
             }
             if (gameActive) currentLevel.Draw(gameTime);
             foreach (Screen screen in screens)

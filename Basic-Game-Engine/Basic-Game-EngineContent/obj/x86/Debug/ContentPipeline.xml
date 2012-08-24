@@ -65,6 +65,24 @@
       <Time>2012-06-09T16:49:57.3433823+01:00</Time>
     </Item>
     <Item>
+      <Source>Lighthouse.jpg</Source>
+      <Name>Lighthouse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Lighthouse.xnb</Output>
+      <Time>2012-06-10T20:10:20.1053433+01:00</Time>
+    </Item>
+    <Item>
+      <Source>heightmap.jpg</Source>
+      <Name>heightmap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\heightmap.xnb</Output>
+      <Time>2012-08-23T20:50:50.257792+01:00</Time>
+    </Item>
+    <Item>
       <Source>ship.fbx</Source>
       <Name>ship</Name>
       <Importer>FbxImporter</Importer>
@@ -74,12 +92,21 @@
       <Time>2012-06-09T16:49:57.3533828+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\ship_0.xml</Key>
-        <Value>2012-06-09T16:51:15.1378318+01:00</Value>
+        <Value>2012-08-23T22:23:10.7678711+01:00</Value>
       </Dependency>
       <Request>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\dome_0.xnb</Request>
       <Request>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\ADP-texture-22_0.xnb</Request>
       <Request>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\boiler_0.xnb</Request>
       <Request>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\funnel_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Ariel.spritefont</Source>
+      <Name>Ariel</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Ariel.xnb</Output>
+      <Time>2012-08-09T17:02:28.0640863+01:00</Time>
     </Item>
     <Item>
       <Source>ship.fbx</Source>

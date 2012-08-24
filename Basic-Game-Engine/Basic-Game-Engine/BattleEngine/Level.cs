@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using BattleEngine.GameElements.Terrain;
 
 namespace BattleEngine
 {
@@ -15,6 +16,9 @@ namespace BattleEngine
         Vector3 modelPosition = Vector3.Zero;
         Vector3 cameraPosition = new Vector3(-1000, 0, 0);
         float aspectRatio;
+
+        TriangleVB lineList;
+
         public Level(Game game)
             : base(game)
         {
@@ -23,12 +27,14 @@ namespace BattleEngine
 
         public override void Initialize()
         {
-            LoadContent();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            lineList = new TriangleVB(Game, "heightmap");
+            lineList.Initialize();
+            Game.Components.Add(lineList);
             myModel = Game.Content.Load<Model>("ship");
             aspectRatio = Game.GraphicsDevice.Viewport.AspectRatio;
             base.LoadContent();
@@ -36,36 +42,39 @@ namespace BattleEngine
 
         public override void Update(GameTime gameTime)
         {
+            //modelRotation += (float) gameTime.ElapsedGameTime.TotalSeconds;
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            System.Console.WriteLine("game running:" + gameTime.TotalGameTime.Seconds);
-            Matrix[] transforms = new Matrix[myModel.Bones.Count];
-            myModel.CopyAbsoluteBoneTransformsTo(transforms);
+            System.Console.WriteLine("game running:" + gameTime.TotalGameTime.Milliseconds);
+            //Matrix[] transforms = new Matrix[myModel.Bones.Count];
+            //myModel.CopyAbsoluteBoneTransformsTo(transforms);
+            //// Draw the model. A model can have multiple meshes, so loop.
+            //foreach (ModelMesh mesh in myModel.Meshes)
+            //{
+            //    // This is where the mesh orientation is set, as well 
+            //    // as our camera and projection.
+            //    foreach (BasicEffect effect in mesh.Effects)
+            //    {
+            //        effect.EnableDefaultLighting();
+            //        effect.World = transforms[mesh.ParentBone.Index] *
+            //            Matrix.CreateRotationY(modelRotation)
+            //            * Matrix.CreateTranslation(modelPosition);
+            //        effect.View = Matrix.CreateLookAt(cameraPosition,
+            //            Vector3.Zero, Vector3.Up);
+            //        effect.Projection = Matrix.CreatePerspectiveFieldOfView(
+            //            MathHelper.ToRadians(45.0f), aspectRatio,
+            //            1.0f, 10000.0f);
+            //    }
+            //    // Draw the mesh, using the effects set above.
+            //    mesh.Draw();
+            //}
+            //base.Draw(gameTime);
 
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in myModel.Meshes)
-            {
-                // This is where the mesh orientation is set, as well 
-                // as our camera and projection.
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] *
-                        Matrix.CreateRotationY(modelRotation)
-                        * Matrix.CreateTranslation(modelPosition);
-                    effect.View = Matrix.CreateLookAt(cameraPosition,
-                        Vector3.Zero, Vector3.Up);
-                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(
-                        MathHelper.ToRadians(45.0f), aspectRatio,
-                        1.0f, 10000.0f);
-                }
-                // Draw the mesh, using the effects set above.
-                mesh.Draw();
-            }
-            base.Draw(gameTime);
+            //ineList.Draw(gameTime);
+
             base.Draw(gameTime);
         }
 

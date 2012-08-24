@@ -14,6 +14,10 @@ namespace BattleEngine.Menus.MenuItems
         String buttonImageName;
         SpriteBatch spriteBatch;
         Vector2 position;
+        public Vector2 Position
+        {
+            get { return position; }
+        }
 
         MouseState prevMouseState;
 
@@ -72,6 +76,11 @@ namespace BattleEngine.Menus.MenuItems
             spriteBatch.Draw(buttonImage, parentPos + position, Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public Vector2 ButtonDimensions()
+        {
+            return new Vector2(buttonImage.Width, buttonImage.Height);
         }
     }
 }
