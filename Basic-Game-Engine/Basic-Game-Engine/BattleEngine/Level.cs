@@ -34,7 +34,7 @@ namespace BattleEngine
         {
             lineList = new TerrainBlock(Game, "heightmap");
             lineList.Initialize();
-            Game.Components.Add(lineList);
+            //this. .Components.Add(lineList);
             myModel = Game.Content.Load<Model>("ship");
             aspectRatio = Game.GraphicsDevice.Viewport.AspectRatio;
             base.LoadContent();
@@ -43,6 +43,7 @@ namespace BattleEngine
         public override void Update(GameTime gameTime)
         {
             //modelRotation += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            lineList.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -73,7 +74,7 @@ namespace BattleEngine
             //}
             //base.Draw(gameTime);
 
-            //ineList.Draw(gameTime);
+            lineList.Draw(gameTime);
 
             base.Draw(gameTime);
         }

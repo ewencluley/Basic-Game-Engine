@@ -25,7 +25,7 @@ namespace BattleEngine.Menus
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-            img = Game.Content.Load<Texture2D>("Lighthouse");
+            img = Game.Content.Load<Texture2D>("popup");
             base.LoadContent();
         }
 
@@ -43,16 +43,7 @@ namespace BattleEngine.Menus
             else base.ScreenState = Menus.ScreenState.Inactive;
         }
 
-        public override void TriggerTransitionIn()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void TriggerTransitionOut()
-        {
-            throw new NotImplementedException();
-        }
-
+       
 
         public override void Update(GameTime gameTime)
         {

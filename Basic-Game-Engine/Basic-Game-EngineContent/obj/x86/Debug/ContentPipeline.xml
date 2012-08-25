@@ -2,22 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Desert.jpg</Source>
-      <Name>Desert</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Desert.xnb</Output>
-      <Time>2012-06-05T00:51:26.5601659+01:00</Time>
-    </Item>
-    <Item>
       <Source>button.png</Source>
       <Name>button</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\button.xnb</Output>
-      <Time>2012-06-05T17:56:03.0707908+01:00</Time>
+      <Time>2012-08-25T17:08:39.8117987+01:00</Time>
     </Item>
     <Item>
       <Source>ADP-texture-22.jpg</Source>
@@ -63,15 +54,6 @@
       <Options>None</Options>
       <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\noseCone.xnb</Output>
       <Time>2012-06-09T16:49:57.3433823+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Lighthouse.jpg</Source>
-      <Name>Lighthouse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Lighthouse.xnb</Output>
-      <Time>2012-06-10T20:10:20.1053433+01:00</Time>
     </Item>
     <Item>
       <Source>heightmap.jpg</Source>
@@ -187,6 +169,24 @@
       <Options>None</Options>
       <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\grass.xnb</Output>
       <Time>2012-08-24T00:04:59.9892986+01:00</Time>
+    </Item>
+    <Item>
+      <Source>MainMenu.png</Source>
+      <Name>MainMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\MainMenu.xnb</Output>
+      <Time>2012-08-25T17:08:40.5038383+01:00</Time>
+    </Item>
+    <Item>
+      <Source>popup.png</Source>
+      <Name>popup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\popup.xnb</Output>
+      <Time>2012-08-25T17:15:12.1102369+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

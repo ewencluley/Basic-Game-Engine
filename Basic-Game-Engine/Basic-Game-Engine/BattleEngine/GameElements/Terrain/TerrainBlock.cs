@@ -69,8 +69,8 @@ namespace BattleEngine.GameElements.Terrain
                     int i = y * theHeightMap.Width + x;
                     //vertices[i] = new VertexPositionColor(new Vector3((float)x*5,colorData[i].R/5,(float)y*5), Color.White); //create each new vertex
                     vertices[i].Position = new Vector3((float)x * 5, colorData[i].R / 2, (float)y * 5);
-                    vertices[i].TextureCoordinate.X = (float)y /(64.0f);
-                    vertices[i].TextureCoordinate.Y = (float)x /(64.0f);
+                    vertices[i].TextureCoordinate.X = (float)y /(30.0f);
+                    vertices[i].TextureCoordinate.Y = (float)x /(30.0f);
 
                 }
 

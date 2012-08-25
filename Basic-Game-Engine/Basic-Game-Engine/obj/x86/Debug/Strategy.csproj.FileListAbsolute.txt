@@ -6,7 +6,6 @@ C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\Wi
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\BattleEngine.pdb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\BattleEngine.exe
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\BattleEngine.pdb
-C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Desert.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\button.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\BattleEngine.exe
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\BattleEngine.pdb
@@ -24,7 +23,8 @@ C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\ADP-texture-22_0.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\boiler_0.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\funnel_0.xnb
-C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Lighthouse.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\Ariel.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\heightmap.xnb
 C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\grass.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\MainMenu.xnb
+C:\Users\Ewen\Documents\Visual Studio 2010\Projects\Basic-Game-Engine\Basic-Game-Engine\Basic-Game-Engine\bin\x86\Debug\Content\popup.xnb

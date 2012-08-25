@@ -45,25 +45,15 @@ namespace BattleEngine.Menus
 
         protected override void LoadContent()
         {
-            img = Game.Content.Load<Texture2D>("Desert");
+            img = Game.Content.Load<Texture2D>("MainMenu");
             base.LoadContent();
         }
 
         public override void TransitionIn(GameTime gt)
         {
             //transition in animation
-            
-            if (Vector2.Distance(Position, onscreenPosition) < FINISHED_TOLLERANCE) base.ScreenState = Menus.ScreenState.Active;
-        }
-
-        public override void TriggerTransitionIn()
-        {
             Position = Vector2.Lerp(Position, onscreenPosition, TRANSITION_SPEED);
-        }
-
-        public override void TriggerTransitionOut()
-        {
-            Position = Vector2.Lerp(Position, offscreenPosition, TRANSITION_SPEED);
+            if (Vector2.Distance(Position, onscreenPosition) < FINISHED_TOLLERANCE) base.ScreenState = Menus.ScreenState.Active;
         }
 
         public override void TransitionOut(GameTime gt)
@@ -79,8 +69,8 @@ namespace BattleEngine.Menus
             if (Keyboard.GetState().IsKeyDown(Keys.A) && !prevKeyboardState.Equals(Keyboard.GetState()))
             {
                 switch(ScreenState){
-                    case Menus.ScreenState.Active: ScreenState = Menus.ScreenState.TransitioningOut; this.TriggerTransitionOut(); break;
-                    case Menus.ScreenState.Inactive: ScreenState = Menus.ScreenState.TransitioningIn; this.TriggerTransitionIn(); break;
+                    case Menus.ScreenState.Active: ScreenState = Menus.ScreenState.TransitioningOut;  break;
+                    case Menus.ScreenState.Inactive: ScreenState = Menus.ScreenState.TransitioningIn; break;
                     case Menus.ScreenState.TransitioningOut: ScreenState = Menus.ScreenState.TransitioningIn;  break;
                     case Menus.ScreenState.TransitioningIn: ScreenState = Menus.ScreenState.TransitioningOut;  break;
                 }
