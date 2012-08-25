@@ -43,6 +43,17 @@ namespace BattleEngine.Menus
             else base.ScreenState = Menus.ScreenState.Inactive;
         }
 
+        public override void TriggerTransitionIn()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void TriggerTransitionOut()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public override void Update(GameTime gameTime)
         {
 

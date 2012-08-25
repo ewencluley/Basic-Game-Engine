@@ -17,7 +17,7 @@ namespace BattleEngine
         Vector3 cameraPosition = new Vector3(-1000, 0, 0);
         float aspectRatio;
 
-        TriangleVB lineList;
+        TerrainBlock lineList;
 
         public Level(Game game)
             : base(game)
@@ -32,7 +32,7 @@ namespace BattleEngine
 
         protected override void LoadContent()
         {
-            lineList = new TriangleVB(Game, "heightmap");
+            lineList = new TerrainBlock(Game, "heightmap");
             lineList.Initialize();
             Game.Components.Add(lineList);
             myModel = Game.Content.Load<Model>("ship");

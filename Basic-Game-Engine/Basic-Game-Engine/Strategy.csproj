@@ -110,10 +110,9 @@
     <Compile Include="BattleEngine\GameElements\Terrain\BufferManager.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\QuadTree.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\QuadTreeNode.cs" />
-    <Compile Include="BattleEngine\GameElements\Terrain\TerrainBlock.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\TerrainManager.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\TreeVertexCollection.cs" />
-    <Compile Include="BattleEngine\GameElements\Terrain\TriangleVB.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\TerrainBlock.cs" />
     <Compile Include="BattleEngine\GameManager.cs" />
     <Compile Include="BattleEngine\GameSettings.cs" />
     <Compile Include="BattleEngine\Level.cs" />

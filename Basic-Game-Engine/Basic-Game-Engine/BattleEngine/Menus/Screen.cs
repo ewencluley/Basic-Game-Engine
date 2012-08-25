@@ -73,6 +73,9 @@ namespace BattleEngine.Menus
         public abstract void TransitionIn(GameTime gt);
         public abstract void TransitionOut(GameTime gt);
 
+        public abstract void TriggerTransitionIn();
+        public abstract void TriggerTransitionOut();
+
         public override void Draw(GameTime gameTime)
         {
             foreach (MenuItem item in menuItems)
