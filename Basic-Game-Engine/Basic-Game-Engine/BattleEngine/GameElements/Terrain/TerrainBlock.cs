@@ -21,6 +21,7 @@ namespace BattleEngine.GameElements.Terrain
         IndexBuffer indexBuffer;
         
         String heightMapName; //name of the heightmap file
+        Texture2D theHeightMap;
         int width, height; //the terrain's height and width
 
         Texture2D grassTexture;
@@ -30,6 +31,14 @@ namespace BattleEngine.GameElements.Terrain
         {
             theGame = (Game1) game;
             this.heightMapName = heightmapName;
+
+        }
+
+        public TerrainBlock(Game game, Texture2D heightMapSegment)
+            : base(game)
+        {
+            theGame = (Game1)game;
+            //this.heightMapName = heightmapName;
 
         }
 
@@ -52,7 +61,7 @@ namespace BattleEngine.GameElements.Terrain
             effect.Projection = projectionMatrix;
             effect.World = Matrix.Identity;
 
-            Texture2D theHeightMap = theGame.Content.Load<Texture2D>(heightMapName);//the heightmap texture
+            if(theHeightMap == null) theHeightMap = theGame.Content.Load<Texture2D>(heightMapName);//the heightmap texture
             grassTexture = theGame.Content.Load<Texture2D>("grass");
 
             height = theHeightMap.Height; //find height of terrain
@@ -153,12 +162,47 @@ namespace BattleEngine.GameElements.Terrain
             base.Update(gameTime);
         }
 
+       
+
+        public Texture2D GetTexture() { return grassTexture; }
+
+        public VertexBuffer GetVertexBuffer() { return vertexBuffer; }
+
+        public IndexBuffer GetIndexBuffer() { return indexBuffer; }
+
+        public int GetVerticesLength() { return vertices.Length; }
+
+        public int GetIndicesLength() { return indices.Length; }
+
         public override void Draw(GameTime gameTime)
         {
+            //SamplerState s = new SamplerState();
+            //s.AddressU = TextureAddressMode.Mirror; s.AddressV = TextureAddressMode.Mirror;
+            //theGame.GraphicsDevice.SamplerStates[0] = s;
+            //theGame.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
+            ////effect.FogEnabled = true;
+            ////effect.FogStart = 120f;
+            ////effect.FogEnd = 150f;
+            ////effect.FogColor = Color.CornflowerBlue.ToVector3();
+            //effect.TextureEnabled = true;
+            //effect.Texture = grassTexture;
+            //effect.EnableDefaultLighting();
+            //effect.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
+            ////effect.CurrentTechnique = effect.Techniques["Textured"];
+            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            //{
+            //    pass.Apply();
+            //    theGame.GraphicsDevice.SetVertexBuffer(vertexBuffer);
+            //    theGame.GraphicsDevice.Indices = indexBuffer;
+            //    theGame.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, vertices.Length, 0, indices.Length / 3);
+            //}
+
+            //effect.View = viewMatrix;
             SamplerState s = new SamplerState();
-            s.AddressU = TextureAddressMode.Mirror; s.AddressV = TextureAddressMode.Mirror;
-            theGame.GraphicsDevice.SamplerStates[0] = s;
-            theGame.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
+            //effect.View = viewMatrix;
+            s.AddressU = TextureAddressMode.Wrap; s.AddressV = TextureAddressMode.Wrap;
+            Game.GraphicsDevice.SamplerStates[0] = s;
+            Game.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
             //effect.FogEnabled = true;
             //effect.FogStart = 120f;
             //effect.FogEnd = 150f;
@@ -166,17 +210,18 @@ namespace BattleEngine.GameElements.Terrain
             effect.TextureEnabled = true;
             effect.Texture = grassTexture;
             effect.EnableDefaultLighting();
-            effect.AmbientLightColor = new Vector3(0.5f, 0.5f,0.5f);
+            effect.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
             //effect.CurrentTechnique = effect.Techniques["Textured"];
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
                 theGame.GraphicsDevice.SetVertexBuffer(vertexBuffer);
                 theGame.GraphicsDevice.Indices = indexBuffer;
-                theGame.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, vertices.Length, 0, indices.Length / 3);        
+                theGame.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, vertices.Length, 0, indices.Length / 3);
             }
 
             base.Draw(gameTime);
         }
+
     }
 }

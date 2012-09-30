@@ -28,10 +28,10 @@ namespace BattleEngine.Menus
             
             offscreenPosition = new Vector2(-1024, 0);
             onscreenPosition = Vector2.Zero;
-            Button play = new Button(game, "button", new Vector2(200, 200));
+            Button play = new TextButton(game, "button", new Vector2(200, 200), "Resume");
             play.clickedEvent +=new Button.ButtonClicked(play_clickedEvent);
-            Button nothing = new TextButton(game, "button", new Vector2(200, 300), "button");
-            nothing.clickedEvent +=new Button.ButtonClicked(play_clickedEvent);
+            Button nothing = new TextButton(game, "button", new Vector2(200, 300), "Exit Game");
+            nothing.clickedEvent +=new Button.ButtonClicked(exit_clickedEvent);
             MenuItems.Add(play);
             MenuItems.Add(nothing);
 
@@ -41,6 +41,12 @@ namespace BattleEngine.Menus
         {
             System.Console.WriteLine("Clicked event");
             ScreenState = Menus.ScreenState.TransitioningOut;
+        }
+
+        void exit_clickedEvent(object sender)
+        {
+            System.Console.WriteLine("exit event");
+            Game.Exit();
         }
 
         protected override void LoadContent()

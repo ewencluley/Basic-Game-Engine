@@ -5,12 +5,15 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using BattleEngine.GameElements.Terrain;
+using BattleEngine.GameElements.Units;
+using BattleEngine.GameElements;
 
 namespace BattleEngine
 {
     class Level:DrawableGameComponent
     {
-        Model myModel;
+        Soldier myModel;
+        Camera cam;
         SpriteBatch spriteBatch;
         float modelRotation = 0.0f;
         Vector3 modelPosition = Vector3.Zero;
@@ -23,6 +26,7 @@ namespace BattleEngine
             : base(game)
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            cam = new Camera(game);
         }
 
         public override void Initialize()
@@ -35,7 +39,7 @@ namespace BattleEngine
             lineList = new TerrainBlock(Game, "heightmap");
             lineList.Initialize();
             //this. .Components.Add(lineList);
-            myModel = Game.Content.Load<Model>("ship");
+            myModel = new Soldier(Game.Content.Load<Model>("ship"), new Vector3(100f, 100f, 0f));
             aspectRatio = Game.GraphicsDevice.Viewport.AspectRatio;
             base.LoadContent();
         }
@@ -43,13 +47,16 @@ namespace BattleEngine
         public override void Update(GameTime gameTime)
         {
             //modelRotation += (float) gameTime.ElapsedGameTime.TotalSeconds;
-            lineList.Update(gameTime);
+            //lineList.Update(gameTime);
+            cam.Update(gameTime);
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
             System.Console.WriteLine("game running:" + gameTime.TotalGameTime.Milliseconds);
+            cam.Draw3DAsset(myModel);
+            cam.DrawTerrainAsset(lineList);
             //Matrix[] transforms = new Matrix[myModel.Bones.Count];
             //myModel.CopyAbsoluteBoneTransformsTo(transforms);
             //// Draw the model. A model can have multiple meshes, so loop.
@@ -74,7 +81,7 @@ namespace BattleEngine
             //}
             //base.Draw(gameTime);
 
-            lineList.Draw(gameTime);
+            //lineList.Draw(gameTime);
 
             base.Draw(gameTime);
         }
