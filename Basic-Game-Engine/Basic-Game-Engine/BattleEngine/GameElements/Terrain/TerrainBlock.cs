@@ -147,23 +147,6 @@ namespace BattleEngine.GameElements.Terrain
             base.LoadContent();
         }
 
-        public override void Update(GameTime gameTime)
-        {
-            #region Camera Control
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)) cameraPosition.Z += 1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) cameraPosition.Z -= 1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)) cameraPosition.X -= 1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)) cameraPosition.X += 1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Q)) cameraPosition.Y += 1f;
-            if (Keyboard.GetState().IsKeyDown(Keys.A)) cameraPosition.Y -= 1f;
-            Matrix viewMatrix = Matrix.CreateLookAt(cameraPosition, cameraPosition - new Vector3(0f, 50f, 100f), new Vector3(0, 0, -1)); //make a new View Matrix based on the camera's new position
-            effect.View = viewMatrix; //assign this to the effect
-            #endregion
-            base.Update(gameTime);
-        }
-
-       
-
         public Texture2D GetTexture() { return grassTexture; }
 
         public VertexBuffer GetVertexBuffer() { return vertexBuffer; }
@@ -173,55 +156,5 @@ namespace BattleEngine.GameElements.Terrain
         public int GetVerticesLength() { return vertices.Length; }
 
         public int GetIndicesLength() { return indices.Length; }
-
-        public override void Draw(GameTime gameTime)
-        {
-            //SamplerState s = new SamplerState();
-            //s.AddressU = TextureAddressMode.Mirror; s.AddressV = TextureAddressMode.Mirror;
-            //theGame.GraphicsDevice.SamplerStates[0] = s;
-            //theGame.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
-            ////effect.FogEnabled = true;
-            ////effect.FogStart = 120f;
-            ////effect.FogEnd = 150f;
-            ////effect.FogColor = Color.CornflowerBlue.ToVector3();
-            //effect.TextureEnabled = true;
-            //effect.Texture = grassTexture;
-            //effect.EnableDefaultLighting();
-            //effect.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
-            ////effect.CurrentTechnique = effect.Techniques["Textured"];
-            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            //{
-            //    pass.Apply();
-            //    theGame.GraphicsDevice.SetVertexBuffer(vertexBuffer);
-            //    theGame.GraphicsDevice.Indices = indexBuffer;
-            //    theGame.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, vertices.Length, 0, indices.Length / 3);
-            //}
-
-            //effect.View = viewMatrix;
-            SamplerState s = new SamplerState();
-            //effect.View = viewMatrix;
-            s.AddressU = TextureAddressMode.Wrap; s.AddressV = TextureAddressMode.Wrap;
-            Game.GraphicsDevice.SamplerStates[0] = s;
-            Game.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
-            //effect.FogEnabled = true;
-            //effect.FogStart = 120f;
-            //effect.FogEnd = 150f;
-            //effect.FogColor = Color.CornflowerBlue.ToVector3();
-            effect.TextureEnabled = true;
-            effect.Texture = grassTexture;
-            effect.EnableDefaultLighting();
-            effect.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
-            //effect.CurrentTechnique = effect.Techniques["Textured"];
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                theGame.GraphicsDevice.SetVertexBuffer(vertexBuffer);
-                theGame.GraphicsDevice.Indices = indexBuffer;
-                theGame.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, vertices.Length, 0, indices.Length / 3);
-            }
-
-            base.Draw(gameTime);
-        }
-
     }
 }

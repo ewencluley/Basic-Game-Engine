@@ -32,15 +32,13 @@ namespace BattleEngine.GameElements
         public override void Update(GameTime gameTime)
         {
             #region Camera Control
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)) position.Z += 100f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) position.Z -= 100f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)) position.X -= 100f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)) position.X += 100f;
-            if (Keyboard.GetState().IsKeyDown(Keys.Q)) position.Y += 100f;
-            if (Keyboard.GetState().IsKeyDown(Keys.A)) position.Y -= 100f;
-            Matrix viewMatrix = Matrix.CreateLookAt(position, position - new Vector3(0f, 50f, 100f), new Vector3(0, 0, -1)); //make a new View Matrix based on the camera's new position
-            effect.View = viewMatrix; //assign this to the effect
-            effect.Projection = projectionMatrix;
+            if (Keyboard.GetState().IsKeyDown(Keys.Down)) position.Z += 1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) position.Z -= 1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left)) position.X -= 1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Right)) position.X += 1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.Q)) position.Y += 1f;
+            if (Keyboard.GetState().IsKeyDown(Keys.A)) position.Y -= 1f;
+            viewMatrix = Matrix.CreateLookAt(position, position - new Vector3(0f, 50f, 100f), new Vector3(0, 0, -1)); //make a new View Matrix based on the camera's new position
             game.Window.Title = "X:" + position.X + ", Y:" + position.Y + ", Z:" + position.Z;
             #endregion
             base.Update(gameTime);
@@ -48,8 +46,8 @@ namespace BattleEngine.GameElements
 
         public void Draw3DAsset(Asset3D asset)
         {
-            viewMatrix = Matrix.CreateLookAt(position,
-                         Vector3.Zero, Vector3.Up);
+            //viewMatrix = Matrix.CreateLookAt(position,
+                         //Vector3.Zero, Vector3.Up);
             Model model = asset.GetModel();   
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[model.Bones.Count];
@@ -77,9 +75,10 @@ namespace BattleEngine.GameElements
         public void DrawTerrainAsset(TerrainBlock asset)
         {
             
-            //effect.View = viewMatrix;
+            
             SamplerState s = new SamplerState();
             effect.View = viewMatrix;
+            effect.Projection = projectionMatrix;
             s.AddressU = TextureAddressMode.Wrap; s.AddressV = TextureAddressMode.Wrap;
             Game.GraphicsDevice.SamplerStates[0] = s;
             Game.GraphicsDevice.RasterizerState = new RasterizerState() { CullMode = CullMode.None };
@@ -91,7 +90,6 @@ namespace BattleEngine.GameElements
             effect.Texture = asset.GetTexture();
             effect.EnableDefaultLighting();
             effect.AmbientLightColor = new Vector3(0.5f, 0.5f, 0.5f);
-            //effect.CurrentTechnique = effect.Techniques["Textured"];
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
