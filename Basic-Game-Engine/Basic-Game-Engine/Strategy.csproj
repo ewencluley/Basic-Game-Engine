@@ -108,8 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleEngine\GameElements\Asset3D.cs" />
-    <Compile Include="BattleEngine\GameElements\Camera.cs" />
+    <Compile Include="BattleEngine\GameElements\Cameras\Camera.cs" />
+    <Compile Include="BattleEngine\GameElements\Cameras\MouseCamera.cs" />
+    <Compile Include="BattleEngine\GameElements\Fog.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\BufferManager.cs" />
+    <Compile Include="BattleEngine\GameElements\Terrain\Map.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\QuadTree.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\QuadTreeNode.cs" />
     <Compile Include="BattleEngine\GameElements\Terrain\TerrainManager.cs" />

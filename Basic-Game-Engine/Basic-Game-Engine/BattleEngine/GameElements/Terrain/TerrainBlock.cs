@@ -10,10 +10,7 @@ namespace BattleEngine.GameElements.Terrain
 {
     class TerrainBlock: DrawableGameComponent
     {
-        Game1 theGame;
-        BasicEffect effect; //the effect used to render the terrain
-        Vector3 cameraPosition = new Vector3(0, 100, 0);
-        
+        Game theGame;
         int[] indices; //the array of indices
         VertexPositionNormalTexture[] vertices; //the array of vertices
 
@@ -22,9 +19,12 @@ namespace BattleEngine.GameElements.Terrain
         
         String heightMapName; //name of the heightmap file
         Texture2D theHeightMap;
-        int width, height; //the terrain's height and width
-
+        
         Texture2D grassTexture;
+
+        public static int BLOCK_VERT_WIDTH = 256;
+        public static int VERT_SCALE = 5;
+        public static int REAL_BLOCK_WIDTH = (BLOCK_VERT_WIDTH-1) * VERT_SCALE;
 
         public TerrainBlock(Game game, String heightmapName)
             :base(game)
@@ -38,7 +38,7 @@ namespace BattleEngine.GameElements.Terrain
             : base(game)
         {
             theGame = (Game1)game;
-            //this.heightMapName = heightmapName;
+            theHeightMap = heightMapSegment;
 
         }
 
@@ -49,23 +49,21 @@ namespace BattleEngine.GameElements.Terrain
 
         protected override void LoadContent()
         {
-            effect = new BasicEffect(Game.GraphicsDevice);
-            //tell the graphics device to mirror textures.
             
-
-            //initial view and projection matrices 
-            Matrix viewMatrix = Matrix.CreateLookAt(cameraPosition, cameraPosition - new Vector3(0f,50f,0f), new Vector3(0, 0, -1));
-            Matrix projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, theGame.GraphicsDevice.Viewport.AspectRatio, 1.0f, 3000.0f);
-
-            effect.View = viewMatrix;
-            effect.Projection = projectionMatrix;
-            effect.World = Matrix.Identity;
-
-            if(theHeightMap == null) theHeightMap = theGame.Content.Load<Texture2D>(heightMapName);//the heightmap texture
+            
             grassTexture = theGame.Content.Load<Texture2D>("grass");
+            if (theHeightMap == null)
+            {
+                theHeightMap = theGame.Content.Load<Texture2D>(heightMapName);//the heightmap texture
+                InitalizeTerrain(Vector3.Zero);
+            }
+            base.LoadContent();
+        }
 
-            height = theHeightMap.Height; //find height of terrain
-            width = theHeightMap.Width; //find width of terrain
+        public void InitalizeTerrain(Vector3 blockOffset)
+        {
+            int height = theHeightMap.Height; //find height of terrain
+            int width = theHeightMap.Width; //find width of terrain
 
             #region Calculate Vertices
             vertices = new VertexPositionNormalTexture[(theHeightMap.Width) * (theHeightMap.Height)]; //setup the vertices array
@@ -77,9 +75,9 @@ namespace BattleEngine.GameElements.Terrain
                 {
                     int i = y * theHeightMap.Width + x;
                     //vertices[i] = new VertexPositionColor(new Vector3((float)x*5,colorData[i].R/5,(float)y*5), Color.White); //create each new vertex
-                    vertices[i].Position = new Vector3((float)x * 5, colorData[i].R / 2, (float)y * 5);
-                    vertices[i].TextureCoordinate.X = (float)y /(30.0f);
-                    vertices[i].TextureCoordinate.Y = (float)x /(30.0f);
+                    vertices[i].Position = new Vector3((float)x * VERT_SCALE, colorData[i].R / 2, (float)y * VERT_SCALE) + blockOffset;
+                    vertices[i].TextureCoordinate.X = (float)y / (30.0f);
+                    vertices[i].TextureCoordinate.Y = (float)x / (30.0f);
 
                 }
 
@@ -91,13 +89,13 @@ namespace BattleEngine.GameElements.Terrain
             // Populate the array with references to indices in the vertex buffer
             indices = new int[(width - 1) * (height - 1) * 6];
             int j = 0;
-            for (int i = 0; i < vertices.Length && i < (width * (height -1)); i++)
+            for (int i = 0; i < vertices.Length && i < (width * (height - 1)); i++)
             {
-                if (((i+1) % width) != 0 || i == 0)
+                if (((i + 1) % width) != 0 || i == 0)
                 {
 
-                    indices[j] = (int) i;                     // *----*
-                    indices[++j] = (int) (i + 1);             //      |
+                    indices[j] = (int)i;                     // *----*
+                    indices[++j] = (int)(i + 1);             //      |
                     indices[++j] = (int)(i + 1 + width);      //      *
 
                     indices[++j] = (int)i;                    // *
@@ -110,12 +108,12 @@ namespace BattleEngine.GameElements.Terrain
             #endregion
 
             #region Calculate Normals
-            for(int i =0; i< vertices.Length; i++)
+            for (int i = 0; i < vertices.Length; i++)
             {
                 vertices[i].Normal = Vector3.Zero;
             }
 
-            
+
             for (int i = 0; i < vertices.Length; i++)
                 vertices[i].Normal = new Vector3(0, 0, 0);
 
@@ -144,7 +142,29 @@ namespace BattleEngine.GameElements.Terrain
             indexBuffer = new IndexBuffer(theGame.GraphicsDevice, IndexElementSize.ThirtyTwoBits, indices.Length, BufferUsage.None);
             indexBuffer.SetData(indices);
             #endregion
-            base.LoadContent();
+        }
+
+        public VertexPositionNormalTexture GetVertex(int col, int row)
+        {
+            return vertices[row * BLOCK_VERT_WIDTH + col];
+        }
+        public VertexPositionNormalTexture[] GetVertexRow(int r)
+        {
+            VertexPositionNormalTexture[] row = new VertexPositionNormalTexture[BLOCK_VERT_WIDTH];
+            for (int i = 0; i < BLOCK_VERT_WIDTH; i++)
+            {
+                row[i] = vertices[r * BLOCK_VERT_WIDTH + i];
+            }
+            return row;
+        }
+        public VertexPositionNormalTexture[] GetVertexColumn(int c)
+        {
+            VertexPositionNormalTexture[] col = new VertexPositionNormalTexture[BLOCK_VERT_WIDTH];
+            for (int i = 0; i < BLOCK_VERT_WIDTH; i++)
+            {
+                col[i] = vertices[i * BLOCK_VERT_WIDTH + c];
+            }
+            return col;
         }
 
         public Texture2D GetTexture() { return grassTexture; }

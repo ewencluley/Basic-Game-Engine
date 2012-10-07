@@ -33,7 +33,7 @@ namespace BattleEngine
         {
             screen.Initialize();
             screens.Add(screen);
-            screen.ScreenState = ScreenState.TransitioningIn;
+            screen.ScreenState = ScreenState.Inactive;
         }
 
         public void RemoveScreen(Screen screen)

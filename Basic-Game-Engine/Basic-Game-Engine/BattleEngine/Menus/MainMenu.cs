@@ -27,6 +27,7 @@ namespace BattleEngine.Menus
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             
             offscreenPosition = new Vector2(-1024, 0);
+            Position = offscreenPosition;
             onscreenPosition = Vector2.Zero;
             Button play = new TextButton(game, "button", new Vector2(200, 200), "Resume");
             play.clickedEvent +=new Button.ButtonClicked(play_clickedEvent);
